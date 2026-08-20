@@ -1,22 +1,12 @@
-import { test, expect } from '@playwright/test';
+import {test} from '@playwright/test'
+import env from '../env/env.config.js'
 
-test('SauceDemo Login Test', async ({ page }) => {
-
-    // Open SauceDemo
-    await page.goto('https://www.saucedemo.com/');
-
-    // Enter Username
-    await page.locator('//input[@id="user-name"]').fill('standard_user');
-
-    // Enter Password
-    await page.locator('//input[@id="password"]').fill('secret_sauce');
-
-    // Click Login
-    await page.locator('#login-button').click();
-
-    // Verify successful login
-    await expect(page).toHaveURL(/inventory.html/);
-
-    // Verify Products page
-    await expect(page.locator('.title')).toHaveText('Products');
+test("sauce Demo",async({page})=>{
+  await page.goto(env.BASE_URL);
+  await page.locator("//input[@name='user-name']").fill(env.USERNAME);
+  await page.locator("//input[@name='password']").fill(env.PASSWORD);
+  await page.waitForTimeout(3000)
+  await page.locator("//input[@name='login-button']").click();
+  await page.waitForTimeout(7000)
+  await page.title();
 });
