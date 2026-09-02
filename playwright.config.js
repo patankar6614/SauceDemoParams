@@ -1,28 +1,37 @@
-import {defineConfig} from "@playwright/test"
+import { defineConfig } from "@playwright/test";
 
 export default defineConfig({
-  testDir:'./tests',
-  use:{
-    headless:false
+  testDir: './tests',
+
+  reporter: [
+    ['html'],
+    ['allure-playwright']
+  ],
+
+  use: {
+    headless: false
   },
-  projects:[
+
+  projects: [
     {
-    name:'chromium',
-    use:{
-      browserName:'chromium'
-      }},
-    
+      name: 'chromium',
+      use: {
+        browserName: 'chromium'
+      }
+    },
+
     // {
-    // name:'firefox',
-    // use:{
-    //   browserName:'firefox'
-    //    }
-    //   },
+    //   name: 'firefox',
+    //   use: {
+    //     browserName: 'firefox'
+    //   }
+    // },
+
     {
-    name:'webkit',
-    use:{
-      browserName:'webkit'
+      name: 'webkit',
+      use: {
+        browserName: 'webkit'
       }
     }
-]
-})
+  ]
+});
