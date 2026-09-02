@@ -7,6 +7,6 @@ test("sauce Demo @smoke @regression",async({page})=>{
   await page.locator("//input[@name='password']").fill(env.PASSWORD);
   await page.waitForTimeout(3000)
   await page.locator("//input[@name='login-button']").click();
-  await page.waitForTimeout(7000)
+ // await page.waitForTimeout(7000)
   await page.title();
 });
