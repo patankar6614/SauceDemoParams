@@ -1,7 +1,7 @@
 import {test} from '@playwright/test'
 import env from '../env/env.config.js'
 
-test("sauce Demo @smoke",async({page})=>{
+test("sauce Demo @smoke @regression",async({page})=>{
   await page.goto(env.BASE_URL);
   await page.locator("//input[@name='user-name']").fill(env.USERNAME);
   await page.locator("//input[@name='password']").fill(env.PASSWORD);
